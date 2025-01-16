@@ -1,66 +1,170 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #383838;
+  padding: 0;
+  margin: 0;
+}
+
+.flex-start {
+  align-items: flex-start;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.j-center {
+  justify-content: center;
+}
+
+.j-between {
+  justify-content: space-between;
+}
+
+.j-around {
+  justify-content: space-around;
+}
+
+.j-end {
+  justify-content: end;
+}
+
+.a-center {
+  align-items: center;
+}
+
+.a-stretch {
+  align-items: stretch;
+}
+
+.a-end {
+  align-items: flex-end;
+}
+
+.direction-col {
+  flex-direction: column;
+}
+
+.grow1 {
+  flex: 1;
+}
+
+.grow2 {
+  flex: 2;
+}
+
+.grow3 {
+  flex: 3;
+}
+
+.grow4 {
+  flex: 4;
+}
+
+.grow5 {
+  flex: 5;
+}
+
+.grow7 {
+  flex: 7;
+}
+
+
+.gap10 {
+  gap: 10px
+}
+
+.gap20 {
+  gap: 20px
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.text-center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.p10 {
+  padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.p20 {
+  padding: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.mt3 {
+  margin-top: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.mt5 {
+  margin-top: 50px;
+}
+
+.mb5 {
+  margin-bottom: 50px;
+}
+
+.mt10 {
+  margin-top: 100px;
+}
+
+.mb10 {
+  margin-bottom: 100px;
+}
+
+.ml1 {
+  margin-left: 10px;
+}
+
+.order1 {
+  order: 1;
+}
+
+.order2 {
+  order: 2;
+}
+
+.order3 {
+  order: 3;
+}
+
+.border {
+  border: 1px solid gray;
 }
 
 
-.tree-container {
-  position: relative;
-  width: 400px;
-  height: auto;
+/*//////////*/
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 10px;
 }
 
-.tree {
-  max-width: 100%;
-  height: auto;
-}
-
-.slots {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.slot {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+.grid > div {
   cursor: pointer;
 }
 
-.decoration-img {
-  width: 100%;
-  height: 100%;
+.container {
+  width: 900px;
 }
 
+.post img {
+  width: 300px;
+}
 
+.post {
+  width: 300px;
+  overflow: hidden;
+}
 
-
+.authForm input {
+  font-size: 30px;
+}
