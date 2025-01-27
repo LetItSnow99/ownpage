@@ -1,49 +1,64 @@
-import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Toolbar from "./components/Toolbar";
-import { useState } from "react";
-import IndexPage from "./pages/IndexPage";
-import UserPostsPage from "./pages/UserPostsPage";
-import SinglePostPage from "./pages/SinglePostPage";
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from "./pages/RegisterPage";
-import UploadPage from "./pages/UploadPage";
-import EditPostPage from "./pages/EditPostPage";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom';
+import ProfilePage from './components/ProfilePage';
+import UsersListPage from './components/UsersListPage';
+import CreatePostPage from './components/CreatePostPage';
+import AllPostsPage from './components/AllPostsPage';
+import SinglePostPage from './components/SinglePostPage';
+import RegisterForm from './components/RegisterForm';
+import LoginForm from './components/LoginForm';
+import ChatPage from './components/ChatPage';
+import { useUserStore } from './store/userStore';
+import './index.css';
 
-function App() {
-    const [secret, setSecret] = useState(null);
-    const [username, setUsername] = useState(null);
+const App = () => {
+    const currentUser = useUserStore((state) => state.currentUser);
+    const logout = useUserStore((state) => state.logout);
 
-    // Set login credentials
-    function setLogin(secretKey, username) {
-        setSecret(secretKey);
-        setUsername(username);
-    }
-
-    // Logout function
-    function logout() {
-        setSecret(null);
-        setUsername(null);
-    }
+    const handleLogout = () => {
+        logout(); // Atsijungimo funkcija
+    };
 
     return (
-        <div>
-            <BrowserRouter>
-                <Toolbar secret={secret} username={username} logout={logout} />
-                <div className="grow3 p20">
-                    <Routes>
-                        <Route path="/login" element={<LoginPage setLogin={setLogin} />} />
-                        <Route path="/register" element={<RegisterPage />} />
-                        <Route path="/userPosts/:username" element={<UserPostsPage secret={secret} username={username} />} />
-                        <Route path="/singlePost/:username/:id" element={<SinglePostPage secret={secret} username={username} />} />
-                        <Route path="/upload" element={<UploadPage secret={secret} />} />
-                        <Route path="/editPost/:id" element={<EditPostPage secret={secret} />} />
-                        <Route path="/" element={<IndexPage secret={secret} username={username} />} />
-                    </Routes>
-                </div>
-            </BrowserRouter>
-        </div>
+        <Router>
+            <div className="app-container">
+                {/* Toolbar */}
+                <nav className="toolbar">
+                    {!currentUser ? (
+                        <>
+                            <Link to="/register">Register</Link>
+                            <Link to="/login">Login</Link>
+                            <Link to="/all-posts">All Posts</Link>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/profile">Profile</Link>
+                            <Link to="/users-list">Users List</Link>
+                            <Link to="/create-post">Create Post</Link>
+                            <Link to="/all-posts">All Posts</Link>
+                            <Link to="/chat">Chat</Link>
+                            <button className="logout-button" onClick={handleLogout}>
+                                Logout
+                            </button>
+                        </>
+                    )}
+                </nav>
+
+                {/* Routes */}
+                <Routes>
+                    <Route path="/" element={<Navigate to="/register" />} /> {/* Nukreipimas į „RegisterForm“ */}
+                    <Route path="/register" element={<RegisterForm />} />
+                    <Route path="/login" element={<LoginForm />} />
+                    <Route path="/profile" element={<ProfilePage />} />
+                    <Route path="/users-list" element={<UsersListPage />} />
+                    <Route path="/create-post" element={<CreatePostPage />} />
+                    <Route path="/all-posts" element={<AllPostsPage />} />
+                    <Route path="/single-post/:id" element={<SinglePostPage />} />
+                    <Route path="/chat" element={<ChatPage />} />
+                </Routes>
+            </div>
+        </Router>
     );
-}
+};
 
 export default App;

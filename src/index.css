@@ -1,0 +1,403 @@
+/* Bendras puslapio fonas */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://media.istockphoto.com/id/1034337372/vector/on-air-neon-sign-vector-on-air-radio-design-template-neon-sign-light-banner-neon-signboard.jpg?s=612x612&w=0&k=20&c=LNfHnq_IIg8V_4c_O0JvwEeF3sB4Gg87JFMWdn_PysA=') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Toolbar */
+.toolbar {
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(47, 79, 79, 0.9);
+    padding: 10px;
+}
+
+.toolbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.toolbar a:hover {
+    text-decoration: underline;
+}
+
+.toolbar .logout-button {
+    background-color: #bab8b8;
+    color: #4c6ec6;
+    border: 1px solid #4759aa;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Puslapių centrinė išdėstymo bazė */
+.page-content,
+.profile-page,
+.users-list-page,
+.create-post-page,
+.all-posts-page,
+.register-page,
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Formos */
+form, .register-form, .login-form, .create-post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    width: 100%;
+}
+
+form input, .register-form input, .login-form input, .create-post-form input,
+.create-post-form textarea, .edit-profile input, .delete-profile input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+form button, .register-form button, .login-form button, .create-post-form button,
+.edit-profile button, .delete-profile button {
+    background-color: #d84949;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+form button:hover, .register-form button:hover, .login-form button:hover,
+.create-post-form button:hover, .edit-profile button:hover, .delete-profile button:hover {
+    background-color: #d58787;
+}
+
+/* Vieno įrašo stilius */
+.single-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 80vh;
+}
+
+.single-post .post-image {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.single-post textarea {
+    width: 100%;
+    max-width: 400px;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #372e2e;
+    border-radius: 4px;
+    resize: none;
+}
+
+button {
+    margin-right: 10px;
+}
+
+.post-actions button {
+    margin-right: 10px;
+}
+
+/* Naudotojų sąrašas */
+.user-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.user-list-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+}
+
+/* Burbuliuko stiliai */
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.status-indicator.online {
+    background-color: #4caf50;
+}
+
+.status-indicator.offline {
+    background-color: #f44336;
+}
+
+/* All Posts puslapis */
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    justify-items: center;
+}
+
+.post-item {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.post-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.post-item p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Profile puslapis */
+.profile-page img, .profile-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-page h1, .profile-page h2, .profile-page p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.edit-profile, .delete-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Responsyvus dizainas */
+@media (max-width: 768px) {
+    .toolbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .single-post .post-image, .single-post .post-details {
+        width: 90%;
+        height: auto;
+    }
+
+    .post-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .user-image {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Chat stilius */
+
+.chat-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+/* Chat langas */
+.chat-page {
+    width: 900px;
+    height: 700px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+}
+
+/* Kontaktų sąrašas */
+.first-cont {
+    width: 35%;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+/* Paieškos juosta */
+.search-bar-container {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-bar-container input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Kontaktų sąrašas */
+.contact-list {
+    padding: 10px;
+}
+
+.contact {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.contact:hover {
+    background-color: #f1f1f1;
+}
+
+.contact.active {
+    background-color: #e0e0e0;
+}
+
+.contact img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.contact .ml1 {
+    flex: 1;
+}
+
+/* Laiko pozicionavimas */
+.time {
+    font-size: 12px;
+    color: #777;
+    margin-left: auto;
+}
+
+/* Pokalbių panelė */
+.right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+/* Pokalbio viršus */
+.chat-header {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}
+
+/* Žinučių konteineris */
+.messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+/* Žinutės */
+.message {
+    max-width: 70%;
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    word-wrap: break-word;
+}
+
+.message.from-you {
+    background-color: #d1e7dd;
+    align-self: flex-start;
+    color: #0f5132;
+}
+
+.message.from-them {
+    background-color: #f8d7da;
+    align-self: flex-end;
+    color: #842029;
+}
+
+/* Žinučių įvedimo forma */
+.message-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.message-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.message-input .send-btn {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.message-input .send-btn:hover {
+    background-color: #0b5ed7;
+}
+
+
+
+
